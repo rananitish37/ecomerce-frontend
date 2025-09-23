@@ -15,15 +15,21 @@ const Navbar = () => {
     <>
       <Box>
         <div className='flex items-center justify-between px-5 lg:px-20 h-[70px] border-b'>
-            <div>
+            <div className='flex items-center gap-9'>
                 <div className='flex items-center gap-2'>
-                    <IconButton>
+                    {!isLarge && <IconButton>
                         <MenuIcon/>
-                    </IconButton>
-                    <h1 className='logo cursor-pointer text-lg md:text-2xl text-[#003366]'>
+                    </IconButton>}
+                    <h1 className='logo cursor-pointer text-lg md:text-2xl text-primary-color'>
                       Kuntiputra
                     </h1>
                 </div>
+                <ul className='flex items-center font-medium text-gray-800 *:'>
+                  {["Men", "Women","Home & Furniture","Electronics"].map((item) =>  <li className='mainCategory hover:text-primary-color
+                   hover:border-b-2 h-[70px] px-4 border-primary-color
+                    flex items-center'>{item}</li>)}
+                 
+                </ul>
             </div>
             <div className='flex gap-1 lg:gap-6 items-center'>
                 <IconButton>
