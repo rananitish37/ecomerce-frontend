@@ -6,6 +6,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import StorefrontIcon from '@mui/icons-material/Storefront';
+import CategorySheet from './CategorySheet';
 
 
 const Navbar = () => {
@@ -13,7 +14,7 @@ const Navbar = () => {
   const isLarge =useMediaQuery(theme.breakpoints.up("lg"))
   return (
     <>
-      <Box>
+      <Box className="sticky top-0 left-0 right-0" sx={{zIndex: 2}}>
         <div className='flex items-center justify-between px-5 lg:px-20 h-[70px] border-b'>
             <div className='flex items-center gap-9'>
                 <div className='flex items-center gap-2'>
@@ -59,6 +60,9 @@ const Navbar = () => {
                 Become Seller
               </Button>}
             </div>
+        </div>
+        <div className='categorySheet absolute top-[4.41rem] left-20 right-20 border'>
+          <CategorySheet/>
         </div>
       </Box>
     </>
