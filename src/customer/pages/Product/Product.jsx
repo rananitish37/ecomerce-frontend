@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
 import ProductCard from './ProductCard'
 import FilterSection from './FilterSection'
-import { Box, Divider, FormControl, IconButton, InputLabel, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material'
+import { Box, Divider, FormControl, IconButton, InputLabel, MenuItem, Pagination, Select, useMediaQuery, useTheme } from '@mui/material'
 import { FilterAlt } from '@mui/icons-material'
 
 const Product = () => {
   const theme = useTheme()
   const isLarge = useMediaQuery(theme.breakpoints.up("lg"))
+  const [page,setPage]=useState(1);
   const [sort,setSort]=useState("")
   const handleSortChange=(event)=>{
     setSort(event.target.value)
+  }
+  const handlePageChange=(value)=>{
+    setPage(value)
   }
   return (
     <div className='-z-10 mt-10'>
@@ -41,7 +45,7 @@ const Product = () => {
               id="demo-simple-select"
               value={sort}
               label="Sort"
-              onChange={handleSortChange}
+              onChange={(e,value)=>handleSortChange(value)}
             >
               <MenuItem value={"price_low"}>Price : LOW-HIGH</MenuItem>
               <MenuItem value={"price_high"}>Price : HIGH-LOW</MenuItem>
@@ -53,6 +57,11 @@ const Product = () => {
         <section className='products_section grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-5 px-5 justify-center'>
           {[1,1,1,1,1,1,1,1,1].map((item)=><ProductCard/>)}
         </section>
+
+        {/* pagination */}
+      <div className='flex justify-center py-10 '>
+      <Pagination  onChange={handlePageChange} count={10} variant="outlined" shape="rounded" color='primary'/>
+      </div>
       </div>
       
      </div>
