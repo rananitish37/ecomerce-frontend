@@ -4,6 +4,7 @@ import Navbar from './customer/components/navbar/Navbar';
 import './tailwind.output.css';
 import customeTheme from './Theme/customeTheme';
 import Home from './customer/pages/Home/Home';
+import Product from './customer/pages/Product/Product';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <ThemeProvider  theme={customeTheme}>
         <div className="">
           <Navbar />
-          <Home />
+          {/* <Home /> */}
+          <Product/>
         </div>
       </ThemeProvider>
      
