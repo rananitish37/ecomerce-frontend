@@ -3,9 +3,10 @@ import './App.css';
 import Navbar from './customer/components/navbar/Navbar';
 import './tailwind.output.css';
 import customeTheme from './Theme/customeTheme';
-import Home from './customer/pages/Home/Home';
-import Product from './customer/pages/Product/Product';
-import ProductDetails from './customer/pages/Product Details/ProductDetails';
+import Review from './customer/pages/Review/Review';
+// import Home from './customer/pages/Home/Home';
+// import Product from './customer/pages/Product/Product';
+// import ProductDetails from './customer/pages/Product Details/ProductDetails';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           <Navbar />
           {/* <Home /> */}
           {/* <Product/> */}
-          <ProductDetails/>
+          {/* <ProductDetails/> */}
+          <Review />
         </div>
       </ThemeProvider>
      
