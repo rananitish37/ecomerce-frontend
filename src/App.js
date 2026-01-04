@@ -4,6 +4,7 @@ import Navbar from './customer/components/navbar/Navbar';
 import './tailwind.output.css';
 import customeTheme from './Theme/customeTheme';
 import Checkout from './customer/pages/Checkout/Checkout';
+import Account from './customer/pages/Account/Account';
 // import Review from './customer/pages/Review/Review';
 // import Cart from './customer/pages/Cart/Cart';
 // import Home from './customer/pages/Home/Home';
@@ -21,7 +22,8 @@ function App() {
           {/* <ProductDetails/> */}
           {/* <Review /> */}
           {/* <Cart /> */}
-          <Checkout />
+          {/* <Checkout /> */}
+          <Account/>
         </div>
       </ThemeProvider>
      
