@@ -9,6 +9,7 @@ import { WomenLevelThree } from '../../../data/category/LevelThree/WomenLevelThr
 import {ElectronicsLevelThree} from '../../../data/category/LevelThree/ElectronicsLevelThree'
 import {FurnitureLevelThree} from '../../../data/category/LevelThree/FurnitureLevelThree'
 import { Box } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 const CategoryTwo={
     men: MenLevelTwo,
     women: WomenLevelTwo,
@@ -23,6 +24,8 @@ const CategoryThee={
 }
 const CategorySheet = ({SelectedCategory,seyShowSheet}) => {
 
+    const navigate = useNavigate();
+
     const childCategory = (category, parentCategoryId) => {
         return category.filter(child => child.parentCategoryId === parentCategoryId);
     }
@@ -36,7 +39,7 @@ const CategorySheet = ({SelectedCategory,seyShowSheet}) => {
                     <p className='text-primary-color mb-5 font-semibold'>{item.name}</p>
                     <ul className='space-y-3'>
                         {childCategory(CategoryThee[SelectedCategory], item.categoryId).map(
-                            (item) => <div><li className='hover:text-primary-color cursor-pointer'>
+                            (item) => <div><li onClick={()=>navigate("/products/"+item.categoryId)} className='hover:text-primary-color cursor-pointer'>
                             {item.name}
                         </li></div>
                         )}

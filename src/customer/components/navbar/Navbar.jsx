@@ -7,6 +7,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import CategorySheet from './CategorySheet';
 import {mainCategory} from '../../../data/category/mainCategory';
+import { useNavigate } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -14,6 +15,8 @@ const Navbar = () => {
   const isLarge =useMediaQuery(theme.breakpoints.up("lg"));
   const [selectedCategory, setSelectedCategory] = useState("men");
   const [showCategorySheet, setShowCategorySheet] = useState(false);
+
+  const navigate = useNavigate();
   return (
     <>
       <Box className="sticky top-0 left-0 right-0" sx={{zIndex: 2}}>
@@ -23,7 +26,7 @@ const Navbar = () => {
                     {!isLarge && <IconButton>
                         <MenuIcon/>
                     </IconButton>}
-                    <h1 className='logo cursor-pointer text-lg md:text-2xl text-primary-color'>
+                    <h1 onClick={()=>navigate("/")} className='logo cursor-pointer text-lg md:text-2xl text-primary-color'>
                       Kuntiputra
                     </h1>
                 </div>
@@ -48,8 +51,9 @@ const Navbar = () => {
               </IconButton>
 
               {
-                false?<Button className='flex items-center gap-2'> 
+                true?<Button onClick={()=>navigate("/account")} className='flex items-center gap-2'> 
                   <Avatar
+                  
                   sx={{width:29,height:29}}
                   src='https://avatars.githubusercontent.com/u/110787633?v=4' />
                   <h1 className='font-semibold hidden lg:block'>
@@ -63,7 +67,7 @@ const Navbar = () => {
                 <FavoriteBorderIcon sx={{fontSize:29}} />
               </IconButton>
               <IconButton>
-                <AddShoppingCartIcon className='text-gray-700' sx={{fontSize:29}}/>
+                <AddShoppingCartIcon onClick={()=>navigate("/cart")} className='text-gray-700' sx={{fontSize:29}}/>
               </IconButton>
 
               {isLarge && <Button startIcon={<StorefrontIcon/>} variant='outlined'>
