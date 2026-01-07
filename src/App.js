@@ -11,6 +11,7 @@ import Cart from './customer/pages/Cart/Cart';
 import Home from './customer/pages/Home/Home';
 import Product from './customer/pages/Product/Product';
 import ProductDetails from './customer/pages/Product Details/ProductDetails';
+import BecomeSeller from './customer/pages/BecomeSeller/BecomeSeller';
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
             <Route path='/cart' element={<Cart/>}/>
             <Route path='/checkout' element={<Checkout/>}/>
             <Route path='/account/*' element={<Account/>}/>
-
+            <Route path='/become-seller' element={<BecomeSeller/>}/>
           </Routes>
         </div>
       </ThemeProvider>
