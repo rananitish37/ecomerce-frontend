@@ -1,40 +1,92 @@
-import { Button, Step, StepLabel, Stepper } from '@mui/material';
-import React, { useState } from 'react'
+import { Button, Step, StepLabel, Stepper } from "@mui/material";
+import React, { useState } from "react";
+import BecomeSellerFormStep1 from "./BecomeSellerFormStep1";
+import { useFormik } from "formik";
 
-const steps=[
-    "Tax Details & Mobile",
-    "Pickup Address",
-    "Bank Details",
-    "Supplier Details"
+const steps = [
+  "Tax Details & Mobile",
+  "Pickup Address",
+  "Bank Details",
+  "Supplier Details",
 ];
 const SellerAccountForm = () => {
-    const [activeStep, setActiveStep] = useState(3);
+  const [activeStep, setActiveStep] = useState(3);
 
-    const handleStep = (value)=>()=>{
-        setActiveStep(activeStep+value);
-    }
+  const handleStep = (value) => () => {
+    (activeStep < steps.length - 1 || (activeStep > 0 && value == -1)) &&
+      setActiveStep(activeStep + value);
+    activeStep == steps.length - 1 && handleCreateAccount();
+    console.log("step count " + activeStep);
+  };
+
+  const handleCreateAccount = () => {
+    console.log("create account");
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      mobile: "",
+      otp: "",
+      gstin: "",
+      pickupAddress: {
+        name: "",
+        mobile: "",
+        pincode: "",
+        address: "",
+        locality: "",
+        city: "",
+        state: "",
+      },
+      bankdetails: {
+        accountNumber: "",
+        ifscCode: "",
+        accountHolderName: "",
+      },
+      sellerName: "",
+      email: "",
+      businessdetails: {
+        businessName: "",
+        businessEmail: "",
+        businessMobile: "",
+        logo: "",
+        banner: "",
+        businessAddress: "",
+      },
+      password: "",
+    },
+    onSubmit: (values) => {
+      console.log(values, "formik submitted");
+    },
+  });
   return (
     <div>
       <Stepper activeStep={activeStep} alternativeLabel>
-        {
-            steps.map((label,index)=>(
-                <Step key={label}>
-                    <StepLabel>{label}</StepLabel>
-                </Step>
-            ))}
+        {steps.map((label, index) => (
+          <Step key={label}>
+            <StepLabel>{label}</StepLabel>
+          </Step>
+        ))}
       </Stepper>
-      <section>
-        <div className='flex items-center justify-between'>
-            <Button onClick={handleStep(-1)} variant='contained' disabled={activeStep==0}>
+      <section className="mt-20 space-y-10">
+        <div>
+          {activeStep == 0 ? <BecomeSellerFormStep1 formik={formik} /> : ""}
+        </div>
+
+        <div className="flex items-center justify-between">
+          <Button
+            onClick={handleStep(-1)}
+            variant="contained"
+            disabled={activeStep == 0}
+          >
             Back
-            </Button>
-            <Button onClick={handleStep(1)} variant='contained' >
-            {activeStep==(steps.length-1)?"Create Account":"continue"}
-            </Button>
+          </Button>
+          <Button onClick={handleStep(1)} variant="contained">
+            {activeStep == steps.length - 1 ? "Create Account" : "continue"}
+          </Button>
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default SellerAccountForm
+export default SellerAccountForm;
