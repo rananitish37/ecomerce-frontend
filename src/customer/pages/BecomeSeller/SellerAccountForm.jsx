@@ -1,7 +1,10 @@
 import { Button, Step, StepLabel, Stepper } from "@mui/material";
-import React, { useState } from "react";
+import React, { act, useState } from "react";
 import BecomeSellerFormStep1 from "./BecomeSellerFormStep1";
 import { useFormik } from "formik";
+import BecomeSellerFormStep2 from "./BecomeSellerFormStep2";
+import BecomeSellerFormStep3 from "./BecomeSellerFormStep3";
+import BecomeSellerFormStep4 from "./BecomeSellerFormStep4";
 
 const steps = [
   "Tax Details & Mobile",
@@ -69,7 +72,10 @@ const SellerAccountForm = () => {
       </Stepper>
       <section className="mt-20 space-y-10">
         <div>
-          {activeStep == 0 ? <BecomeSellerFormStep1 formik={formik} /> : ""}
+          {activeStep == 0 ? <BecomeSellerFormStep1 formik={formik} /> :
+          activeStep==1?<BecomeSellerFormStep2 formik={formik} />:
+          activeStep==2?<BecomeSellerFormStep3 formik={formik} />: 
+          <BecomeSellerFormStep4 formik={formik} />}
         </div>
 
         <div className="flex items-center justify-between">
