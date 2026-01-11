@@ -23,8 +23,8 @@ const Account = () => {
   const handleClick = (item) => navigate(item.path);
 
   return (
-    // <div className='px-5 lg:px-52 min-h-screen mt-10'>
-    <div className="lg:px-52 min-h-screen mt-10">
+    <div className='px-5 lg:px-52 min-h-screen mt-10'>
+    {/* <div className="lg:px-52 min-h-screen mt-10"> */}
       <div>
         <h1 className="text-xl font-bold pb-5">Codex</h1>
       </div>

@@ -12,6 +12,7 @@ import Home from './customer/pages/Home/Home';
 import Product from './customer/pages/Product/Product';
 import ProductDetails from './customer/pages/Product Details/ProductDetails';
 import BecomeSeller from './customer/pages/BecomeSeller/BecomeSeller';
+import SellerDashboard from './seller/pages/SellerDashboard/SellerDashboard';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path='/checkout' element={<Checkout/>}/>
             <Route path='/account/*' element={<Account/>}/>
             <Route path='/become-seller' element={<BecomeSeller/>}/>
+            <Route path='/seller/*' element={<SellerDashboard/>}/>
           </Routes>
         </div>
       </ThemeProvider>
