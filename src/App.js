@@ -13,6 +13,7 @@ import Product from './customer/pages/Product/Product';
 import ProductDetails from './customer/pages/Product Details/ProductDetails';
 import BecomeSeller from './customer/pages/BecomeSeller/BecomeSeller';
 import SellerDashboard from './seller/pages/SellerDashboard/SellerDashboard';
+import AdminDashboard from './admin/pages/Dashboard/AdminDashboard';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path='/account/*' element={<Account/>}/>
             <Route path='/become-seller' element={<BecomeSeller/>}/>
             <Route path='/seller/*' element={<SellerDashboard/>}/>
+            <Route path='/admin/*' element={<AdminDashboard/>}/>
           </Routes>
         </div>
       </ThemeProvider>

@@ -1,4 +1,4 @@
-export const uploadToCloudinary=async (pics) =>{
+export const uploadToCloudinary = async (pics) =>{
     const cloud_name = "dpe93l68i"
     const upload_preset="codex-food"
 
