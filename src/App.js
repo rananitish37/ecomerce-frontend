@@ -14,8 +14,13 @@ import ProductDetails from './customer/pages/Product Details/ProductDetails';
 import BecomeSeller from './customer/pages/BecomeSeller/BecomeSeller';
 import SellerDashboard from './seller/pages/SellerDashboard/SellerDashboard';
 import AdminDashboard from './admin/pages/Dashboard/AdminDashboard';
+import { useEffect } from 'react';
+import { fetchProducts } from './State/fetchProduct';
 
 function App() {
+  useEffect(()=>{
+    fetchProducts()
+  },[])
   return (
     
       <ThemeProvider  theme={customeTheme}>
