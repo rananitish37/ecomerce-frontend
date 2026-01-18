@@ -17,7 +17,7 @@ const BecomeSeller = () => {
             <div className='mt-10 space-y-2'>
                 <h1 className='text-center text-sm font-medium'>have account</h1>
                 <Button onClick={handleShowPage} fullWidth sx={{py:"11px"}} variant='outlined'>
-                    {isLogin?"Register":"Login"}
+                    {isLogin?"Login":"Register"}
                 </Button>
             </div>
       </section>

@@ -1,9 +1,14 @@
-import { TextField } from '@mui/material'
+import { Button, TextField } from '@mui/material'
 import { useFormik } from 'formik';
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import {sendLoginSignupOtp, Signing} from '../../../State/AuthSlice'
 
 const SellerLoginForm = () => {
-    
+  const dispatch = useDispatch()
+    const handleSendOpt = ()=>{
+      dispatch(sendLoginSignupOtp({email:formik.values.email}))
+    }
     const formik = useFormik({
         initialValues:{
             email:"",
@@ -11,9 +16,12 @@ const SellerLoginForm = () => {
         },
         onSubmit:(values)=>{
             console.log("form data ",values);
+            dispatch(Signing(values))
         }
     })
-    
+    const handleLogin = () =>{
+      // dispatch(Signin(email,otp))
+    }
   return (
     <div>
         <h1 className='text-center font-bold text-xl text-primary-color pb-5'>Login as Seller</h1>
@@ -42,6 +50,12 @@ const SellerLoginForm = () => {
             helperText={formik.touched.otp && Boolean(formik.errors.otp)}
         />
       </div>}
+      <Button onClick={handleSendOpt} fullWidth variant='contained' sx={{py:"11px"}}>
+        Send Otp
+      </Button>
+      <Button onClick={()=>formik.handleSubmit()} fullWidth variant='contained' sx={{py:"11px"}}>
+        Login
+      </Button>
       </div>
     </div>
   )

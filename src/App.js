@@ -26,13 +26,6 @@ function App() {
       <ThemeProvider  theme={customeTheme}>
         <div className="">
           <Navbar />
-          {/* <Home /> */}
-          {/* <Product/> */}
-          {/* <ProductDetails/> */}
-          {/* <Review /> */}
-          {/* <Cart /> */}
-          {/* <Checkout /> */}
-          {/* <Account/> */}
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/products/:category' element={<Product/>}/>
