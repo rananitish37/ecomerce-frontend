@@ -1,16 +1,12 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { useDispatch, useSelector } from "react-redux";
-import {thunk} from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
+import authReducer from "./AuthSlice";
 
-const rootReducer = combineReducers({
-  // Add your reducers here later
-  // products: productsReducer,
-});
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    auth: authReducer,
+  },
 });
 
 export default store;
-export const useAppDispatch = () => useDispatch();
-export const useAppSelector = useSelector;
+
